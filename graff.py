@@ -1,5 +1,7 @@
+# !/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-перетащи каринку или аудио или скопируй на них ссылку и введи пир/выбери беседу
+РїРµСЂРµС‚Р°С‰Рё РєР°СЂРёРЅРєСѓ РёР»Рё Р°СѓРґРёРѕ РёР»Рё СЃРєРѕРїРёСЂСѓР№ РЅР° РЅРёС… СЃСЃС‹Р»РєСѓ Рё РІРІРµРґРё РїРёСЂ/РІС‹Р±РµСЂРё Р±РµСЃРµРґСѓ
 """
 import vk
 import sys
@@ -13,7 +15,7 @@ try:
 except:
     cache = {}
 
-token = 'TOKEN' #скопируй сюда свой токен из VK
+token = 'TOKEN' #СЃРєРѕРїРёСЂСѓР№ СЃСЋРґР° СЃРІРѕР№ С‚РѕРєРµРЅ РёР· VK
 ap = vk.API(vk.Session(token), 109, v='5.60')
 pe = 2000000000
 peer = 0
@@ -22,7 +24,7 @@ if len(sys.argv) > 1:
 else:
     arg = clipboard.paste()
     if not arg.startswith('http'):
-        arg = input('Укажите путь к файлу или ссылку на него: ')
+        arg = input('РЈРєР°Р¶РёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ РёР»Рё СЃСЃС‹Р»РєСѓ РЅР° РЅРµРіРѕ: ')
         if arg.startswith('"'):
             arg = arg[1:-1]
 if arg in ('--help', 'help'):
@@ -85,7 +87,7 @@ if not peer:
         title = m['title'] if 'chat_id' in m else get_title(prof)
         print('{i})\t{t}\n\t{body}'.format(t=title, i=a['items'].index(i)+1, **m).encode('cp866', errors='xmlcharrefreplace').decode('cp866', errors='xmlcharrefreplace'), end='\n-----------\n')
 
-    arg = input('Укажите адресата: ').strip()
+    arg = input('РЈРєР°Р¶РёС‚Рµ Р°РґСЂРµСЃР°С‚Р°: ').strip()
 
 if arg.isdigit():
     peer = int(arg)
